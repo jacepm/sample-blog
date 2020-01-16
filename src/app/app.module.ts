@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { MainNavComponent } from './pages/main-nav/main-nav.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
