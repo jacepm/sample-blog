@@ -8,13 +8,17 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { MainNavComponent } from './pages/main-nav/main-nav.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MainFooterComponent } from './pages/main-footer/main-footer.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     HomeComponent,
-    MainFooterComponent
+    MainFooterComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
