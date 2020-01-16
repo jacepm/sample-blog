@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { MainNavComponent } from './pages/main-nav/main-nav.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MainFooterComponent } from './pages/main-footer/main-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
-    HomeComponent
+    HomeComponent,
+    MainFooterComponent
   ],
   imports: [
     BrowserModule,
