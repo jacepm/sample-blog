@@ -12,6 +12,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     HomeComponent,
     MainFooterComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
