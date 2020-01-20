@@ -8,8 +8,6 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
-import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { CardComponent } from './components/card/card.component';
@@ -24,8 +22,6 @@ import { BlogViewComponent } from './components/blog/blog-view/blog-view.compone
     MainNavComponent,
     HomeComponent,
     MainFooterComponent,
-    AboutComponent,
-    ContactComponent,
     CardComponent,
     BlogComponent,
     BlogListComponent,
