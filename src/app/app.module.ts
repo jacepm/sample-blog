@@ -9,12 +9,13 @@ import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
 import { CardComponent } from './components/card/card.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogViewComponent } from './components/blog/blog-view/blog-view.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BlogViewComponent } from './components/blog/blog-view/blog-view.compone
     CardComponent,
     BlogComponent,
     BlogListComponent,
-    BlogViewComponent
+    BlogViewComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +37,10 @@ import { BlogViewComponent } from './components/blog/blog-view/blog-view.compone
     TooltipModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
