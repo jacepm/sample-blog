@@ -15,6 +15,7 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { CardComponent } from './components/card/card.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { BlogListComponent } from './components/blog/blog-list/blog-list.compone
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     TooltipModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
