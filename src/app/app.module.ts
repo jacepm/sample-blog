@@ -13,6 +13,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { CardComponent } from './components/card/card.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CardComponent } from './components/card/card.component';
     MainFooterComponent,
     AboutComponent,
     ContactComponent,
-    CardComponent
+    CardComponent,
+    BlogComponent,
+    BlogListComponent
   ],
   imports: [
     BrowserModule,
