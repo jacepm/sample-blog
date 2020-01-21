@@ -9,7 +9,7 @@ import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule, MatDatepickerModule } from '@angular/material';
 import { CardComponent } from './components/card/card.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
@@ -44,7 +44,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule
   ],
   providers: [
     AuthGuard,
