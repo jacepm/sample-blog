@@ -34,7 +34,7 @@ getBlogLists() {
   }
 
   goto(value: string) {
-    this.router.navigate([`/blog/${value}`]);
+    this.router.navigate([`/blog/view/${value}`]);
   }
 
   add() {
