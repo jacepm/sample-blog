@@ -13,11 +13,12 @@ import { MatFormFieldModule, MatInputModule, MatCardModule, MatButtonModule } fr
 import { CardComponent } from './components/card/card.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BlogViewComponent } from './components/blog/blog-view/blog-view.component';
 import { LoginComponent } from './components/login/login.component';
 import { BlogAddComponent } from './components/blog/blog-add/blog-add.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,14 @@ import { AuthGuard } from './guards/auth.guard';
     MatInputModule,
     MatButtonModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
