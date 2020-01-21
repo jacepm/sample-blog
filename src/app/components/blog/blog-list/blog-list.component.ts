@@ -41,7 +41,20 @@ getBlogLists() {
     this.router.navigate([`/blog/add`]);
   }
 
-  edit(value: string) {
-    this.router.navigate([`/blog/edit/${value}`]);
+  edit(id: string) {
+    this.router.navigate([`/blog/edit/${id}`]);
+  }
+
+  delete(id: string) {
+    const value = { deleted: true }
+    this.api
+      .patch("/blog/" + id, value)
+      .then((res: any) => {
+        console.log(res);
+        this.getBlogLists();
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 }
