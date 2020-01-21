@@ -1,1 +1,50 @@
-<p>blog-add works!</p>
+<app-main-nav></app-main-nav>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <mat-card>
+                <mat-card-title>New blog</mat-card-title>
+                <form [formGroup]="blogForm">
+                    <div class="form-group">
+                        <mat-form-field class="full-width">
+                            <mat-label>Title</mat-label>
+                            <input matInput placeholder="Enter Title" formControlName="title" autocomplete="off" />
+                            <mat-error>Title is
+                                <strong>required</strong>
+                            </mat-error>
+                            <mat-hint align="start">Please enter
+                                <strong>Title</strong>
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field class="full-width">
+                            <mat-label>Author</mat-label>
+                            <input matInput placeholder="Enter Author" formControlName="author" autocomplete="off" />
+                            <mat-error>Author is
+                                <strong>required</strong>
+                            </mat-error>
+                            <mat-hint align="start">Please enter
+                                <strong>Author</strong>
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field class="full-width">
+                            <mat-label>Content</mat-label>
+                            <textarea matInput placeholder="Enter Content" formControlName="content"
+                                autocomplete="off"></textarea>
+                            <mat-error>Content is
+                                <strong>required</strong>
+                            </mat-error>
+                            <mat-hint align="start">Please enter
+                                <strong>Content</strong>
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <button (click)="submit(blogForm.value)" class="btn btn-primary">Submit</button>
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>
