@@ -40,4 +40,8 @@ getBlogLists() {
   add() {
     this.router.navigate([`/blog/add`]);
   }
+
+  edit(value: string) {
+    this.router.navigate([`/blog/edit/${value}`]);
+  }
 }
