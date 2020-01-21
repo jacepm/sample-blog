@@ -9,6 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  user: any;
 
   constructor(
     private api: ApiService,
@@ -33,12 +34,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(value: any) {
-    console.log(value);
     this.api
       .post("/user/login", value)
       .then((res: any) => {
-        console.log(res.data);
-        localStorage.setItem("token", res.data.token); 
+        this.user = res.data;
+        localStorage.setItem("token", res.meta.token);
       })
       .catch(error => {
         console.log(error);
