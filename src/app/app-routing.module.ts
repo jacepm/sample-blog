@@ -15,11 +15,13 @@ const routes: Routes = [
   },
   {
     path: "blog",
-    component: BlogComponent
+    component: BlogComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: "blog/:id",
-    component: BlogViewComponent
+    path: "blog/view/:id",
+    component: BlogViewComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "blog/add",
