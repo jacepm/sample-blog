@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BlogViewComponent } from './components/blog/blog-view/blog-view.component';
 import { LoginComponent } from './components/login/login.component';
 import { BlogAddComponent } from './components/blog/blog-add/blog-add.component';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { BlogAddComponent } from './components/blog/blog-add/blog-add.component'
     MatInputModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
