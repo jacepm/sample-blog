@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.createForm();
+    this.login();
   }
 
-  createForm() {
+  login() {
     this.loginForm = this.fb.group({
       userName: ["", Validators.required],
       password: ["", Validators.required]
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     return result;
   }
 
-  login(value: any) {
+  submit(value: any) {
     this.api
       .post("/user/login", value)
       .then((res: any) => {
