@@ -44,5 +44,4 @@ export class BlogAddComponent implements OnInit {
         console.log(error)
       });
   }
-
 }
