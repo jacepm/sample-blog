@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
       .then((res: any) => {
         this.user = res.data;
         localStorage.setItem("token", res.meta.token);
+        this.router.navigate(["/blog"]);
       })
       .catch(error => {
         console.log(error);
