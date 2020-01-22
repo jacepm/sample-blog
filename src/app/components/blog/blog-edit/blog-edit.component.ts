@@ -12,6 +12,7 @@ export class BlogEditComponent implements OnInit {
   blogForm: FormGroup
   id: string;
   row: any;
+  loading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -56,6 +57,7 @@ export class BlogEditComponent implements OnInit {
   }
 
   save(value: string) {
+    this.loading = true;
     this.api
       .patch("/blog/" + this.id, value)
       .then((res: any) => {
@@ -63,7 +65,8 @@ export class BlogEditComponent implements OnInit {
         this.getBlog();
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
+        this.loading = false;
       });
   }
 }
