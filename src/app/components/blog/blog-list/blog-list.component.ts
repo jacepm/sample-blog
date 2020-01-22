@@ -36,7 +36,6 @@ export class BlogListComponent implements OnInit {
           .filter((data: any) =>
             data.deleted === false
           );
-        console.log(this.rows);
       })
       .catch(error => {
         console.log(error);
@@ -72,7 +71,6 @@ export class BlogListComponent implements OnInit {
       this.api
         .patch("/blog/" + id, value)
         .then((res: any) => {
-          console.log(res.message);
           this.getBlogLists();
         })
         .catch(error => {
