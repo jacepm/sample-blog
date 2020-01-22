@@ -6,8 +6,8 @@
                 <h5 class="card-title">{{ row.title }}</h5>
                 <p class="card-text">{{ (row.content | slice:0:100) + '...' }}</p>
                 <a (click)="goto(row._id)" class="btn btn-primary text-white mr-3">Read more...</a>
-                <a *ngIf="auth.loggedIn()" (click)="edit(row._id)" class="btn btn-success text-white mr-3">Edit blog</a>
-                <a *ngIf="auth.loggedIn()" (click)="delete(row._id)" class="btn btn-danger text-white">Delete blog</a>
+                <a (click)="edit(row._id)" class="btn btn-success text-white mr-3">Edit blog</a>
+                <a class="btn btn-danger text-white">Delete blog</a>
             </div>
         </div>
     </div>
