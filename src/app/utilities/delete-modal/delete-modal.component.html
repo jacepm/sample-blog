@@ -5,6 +5,6 @@
     {{ data }}
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{ closeBtnName }}</button>
-    <button type="button" class="btn btn-{{ actionBtnColor }}">{{ actionBtnName }}</button>
+    <button type="button" class="btn btn-default" (click)="close()">Close</button>
+    <button type="button" class="btn btn-danger" (click)="delete()">Delete <i class="fa fa-spinner fa-spin" *ngIf="loading"></i></button>
 </div>
