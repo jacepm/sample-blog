@@ -33,7 +33,7 @@ export class BlogAddComponent implements OnInit {
     return result;
   }
 
-  submit(value: string) {
+  save(value: string) {
     this.api
       .post("/blog", value)
       .then((res: any) => {
