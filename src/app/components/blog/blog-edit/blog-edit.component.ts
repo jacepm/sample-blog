@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-edit',
@@ -17,7 +17,8 @@ export class BlogEditComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private api: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -61,8 +62,8 @@ export class BlogEditComponent implements OnInit {
     this.api
       .patch("/blog/" + this.id, value)
       .then((res: any) => {
-        console.log(res.data);
-        this.getBlog();
+        console.log(res.message);
+        this.router.navigate([`/blog`]);
       })
       .catch(error => {
         console.log(error);
