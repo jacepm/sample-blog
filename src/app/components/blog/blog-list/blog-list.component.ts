@@ -25,7 +25,13 @@ getBlogLists() {
   this.api
     .get("/blog")
     .then((res: any) => {
-      this.rows = res.data.filter((data: any) => data.deleted === false);
+      this.rows = res.data
+        .sort((a, b) =>
+          new Date(a.date) < new Date(b.date) ? 1 : -1
+        )
+        .filter((data: any) =>
+          data.deleted === false
+        );
       console.log(this.rows);
     })
     .catch(error => {
