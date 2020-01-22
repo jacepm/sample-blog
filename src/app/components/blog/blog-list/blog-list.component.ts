@@ -60,22 +60,24 @@ export class BlogListComponent implements OnInit {
       data: "Are you sure you want to delete this blog?",
       title: "Delete blog"
     };
-    this.modalRef = this.modal.show(DeleteModalComponent, { initialState });
-    this.modalRef.content.actionBtnName = "Delete";
-    this.modalRef.content.actionBtnColor = "danger";
-    this.modalRef.content.closeBtnName = "Close";
-  }
 
-  /* delete(id: string) {
-    const value = { deleted: true }
-    this.api
-      .patch("/blog/" + id, value)
-      .then((res: any) => {
-        console.log(res);
-        this.getBlogLists();
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  } */
+    this.modalRef = this.modal.show(DeleteModalComponent, { initialState });
+
+    this.modalRef.content.event.subscribe(res => {
+      if (!res) {
+        return;
+      }
+
+      let value = { deleted: true };
+      this.api
+        .patch("/blog/" + id, value)
+        .then((res: any) => {
+          console.log(res.message);
+          this.getBlogLists();
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    });
+  }
 }
