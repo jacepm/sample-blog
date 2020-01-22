@@ -1,0 +1,10 @@
+<div class="modal-header">
+    <h5 class="modal-title pull-left"><i class="fa fa-trash"></i> {{ title }}</h5>
+</div>
+<div class="modal-body">
+    {{ data }}
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{ closeBtnName }}</button>
+    <button type="button" class="btn btn-{{ actionBtnColor }}">{{ actionBtnName }}</button>
+</div>
