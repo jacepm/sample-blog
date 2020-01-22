@@ -1,14 +1,16 @@
 <div class="row">
     <button (click)="add()" class="btn btn-primary ml-auto mr-3 mb-3">New blog</button>
+
     <div class="col-sm-12 mb-3" *ngFor="let row of rows">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ row.title }}</h5>
-                <p class="card-text">{{ (row.content | slice:0:100) + '...' }}</p>
+                <p class="card-text">{{ (row.content | slice:0:100) + "..." }}</p>
                 <a (click)="goto(row._id)" class="btn btn-primary text-white mr-3">Read more...</a>
                 <a (click)="edit(row._id)" class="btn btn-success text-white mr-3">Edit blog</a>
                 <a (click)="deleteModal(row._id)" class="btn btn-danger text-white">Delete blog</a>
             </div>
         </div>
     </div>
+    
 </div>
