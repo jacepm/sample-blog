@@ -1,14 +1,14 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { ApiService } from '../../../services/api.service';
-import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
-import { DeleteModalComponent } from 'src/app/utilities/delete-modal/delete-modal.component';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { Component, OnInit, TemplateRef } from "@angular/core";
+import { ApiService } from "../../../services/api.service";
+import { Router } from "@angular/router";
+import { AuthService } from "../../../services/auth.service";
+import { DeleteModalComponent } from "src/app/utilities/delete-modal/delete-modal.component";
+import { BsModalService, BsModalRef } from "ngx-bootstrap";
 
 @Component({
-  selector: 'app-blog-list',
-  templateUrl: './blog-list.component.html',
-  styleUrls: ['./blog-list.component.css']
+  selector: "app-blog-list",
+  templateUrl: "./blog-list.component.html",
+  styleUrls: ["./blog-list.component.css"]
 })
 export class BlogListComponent implements OnInit {
   rows: any;
@@ -19,7 +19,7 @@ export class BlogListComponent implements OnInit {
     public auth: AuthService,
     private router: Router,
     private modal: BsModalService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getBlogLists();
@@ -30,12 +30,8 @@ export class BlogListComponent implements OnInit {
       .get("/blog")
       .then((res: any) => {
         this.rows = res.data
-          .sort((a, b) =>
-            new Date(a.date) < new Date(b.date) ? 1 : -1
-          )
-          .filter((data: any) =>
-            data.deleted === false
-          );
+          .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
+          .filter((data: any) => data.deleted === false);
       })
       .catch(error => {
         console.log(error);
@@ -67,10 +63,12 @@ export class BlogListComponent implements OnInit {
         return;
       }
 
-      let value = { deleted: true };
+      const value = { deleted: true };
       this.api
         .patch("/blog/" + id, value)
-        .then((res: any) => {
+        // tslint:disable-next-line: no-shadowed-variable
+        .then(res => {
+          console.log(res);
           this.getBlogLists();
         })
         .catch(error => {

@@ -1,21 +1,31 @@
-import { Injectable, Injector } from '@angular/core';
-import { HttpInterceptor } from '@angular/common/http';
-import { AuthService } from './auth.service';
+import { Injectable, Injector } from "@angular/core";
+import { HttpInterceptor, HttpErrorResponse } from "@angular/common/http";
+import { AuthService } from "./auth.service";
+import { catchError } from "rxjs/operators";
+import { throwError } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthInterceptorService implements HttpInterceptor {
+  constructor(private auth: AuthService) {}
 
-  constructor(private injector: Injector) { }
- 
   intercept(req, next) {
-    let auth = this.injector.get(AuthService);
-    let token = req.clone({
+    const token = req.clone({
       setHeaders: {
-        Authorization: `Bearer ${auth.getToken()}`
+        Authorization: `Bearer ${this.auth.getToken()}`
       }
     });
-    return next.handle(token);
+    return next.handle(token).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.log(error);
+
+        if (error.status === 401 || error.status === 403) {
+          this.auth.logout();
+        }
+
+        return throwError(error);
+      })
+    );
   }
 }

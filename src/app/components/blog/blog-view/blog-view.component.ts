@@ -1,23 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../../services/api.service';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { ApiService } from "../../../services/api.service";
 
 @Component({
-  selector: 'app-blog-view',
-  templateUrl: './blog-view.component.html',
-  styleUrls: ['./blog-view.component.css']
+  selector: "app-blog-view",
+  templateUrl: "./blog-view.component.html",
+  styleUrls: ["./blog-view.component.css"]
 })
 export class BlogViewComponent implements OnInit {
   id: any;
   row: any;
 
-  constructor(
-    private route: ActivatedRoute,
-    private api: ApiService
-  ) { }
+  constructor(private route: ActivatedRoute, private api: ApiService) {}
 
   ngOnInit() {
-    this.id = this.route.snapshot.params["id"];
+    this.id = this.route.snapshot.params.id;
     this.getBlog();
   }
 
@@ -32,5 +29,4 @@ export class BlogViewComponent implements OnInit {
         console.log(error);
       });
   }
-
 }

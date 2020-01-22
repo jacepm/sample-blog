@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ApiService } from 'src/app/services/api.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ApiService } from "src/app/services/api.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-blog-add',
-  templateUrl: './blog-add.component.html',
-  styleUrls: ['./blog-add.component.css']
+  selector: "app-blog-add",
+  templateUrl: "./blog-add.component.html",
+  styleUrls: ["./blog-add.component.css"]
 })
 export class BlogAddComponent implements OnInit {
   blogForm: FormGroup;
@@ -16,7 +16,7 @@ export class BlogAddComponent implements OnInit {
     private fb: FormBuilder,
     private api: ApiService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.create();
@@ -29,7 +29,7 @@ export class BlogAddComponent implements OnInit {
       content: ["", Validators.required]
     });
   }
-  
+
   isControlInvalid(controlName: string): boolean {
     const control = this.blogForm.controls[controlName];
     const result = control.invalid && control.touched;

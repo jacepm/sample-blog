@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ApiService } from 'src/app/services/api.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ApiService } from "src/app/services/api.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-blog-edit',
-  templateUrl: './blog-edit.component.html',
-  styleUrls: ['./blog-edit.component.css']
+  selector: "app-blog-edit",
+  templateUrl: "./blog-edit.component.html",
+  styleUrls: ["./blog-edit.component.css"]
 })
 export class BlogEditComponent implements OnInit {
-  blogForm: FormGroup
+  blogForm: FormGroup;
   id: string;
   row: any;
   loading = false;
@@ -19,10 +19,10 @@ export class BlogEditComponent implements OnInit {
     private api: ApiService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.id = this.route.snapshot.params["id"];
+    this.id = this.route.snapshot.params.id;
     this.getBlog();
     this.create();
   }
@@ -39,7 +39,7 @@ export class BlogEditComponent implements OnInit {
         });
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
       });
   }
 

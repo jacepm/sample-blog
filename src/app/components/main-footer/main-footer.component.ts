@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-main-footer',
-  templateUrl: './main-footer.component.html',
-  styleUrls: ['./main-footer.component.css']
+  selector: "app-main-footer",
+  templateUrl: "./main-footer.component.html",
+  styleUrls: ["./main-footer.component.css"]
 })
 export class MainFooterComponent implements OnInit {
   currentDate = new Date();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
