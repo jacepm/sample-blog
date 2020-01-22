@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ApiService } from "src/app/services/api.service";
 
 @Component({
   selector: "app-card",
@@ -6,28 +7,24 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./card.component.css"]
 })
 export class CardComponent implements OnInit {
-  cards = [
-    {
-      title: "Post 1",
-      description:
-        "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      link: "#"
-    },
-    {
-      title: "Post 2",
-      description:
-        "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      link: "#"
-    },
-    {
-      title: "Post 3",
-      description:
-        "Some quick example text to build on the card title and make up the bulk of the card's content.",
-      link: "#"
-    }
-  ];
+  rows: any;
 
-  constructor() {}
+  constructor(private api: ApiService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getBlogLists();
+  }
+
+  getBlogLists() {
+    this.api
+      .get("/blog")
+      .then((res: any) => {
+        this.rows = res.data
+          .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
+          .filter((data: any) => data.deleted === false);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 }
