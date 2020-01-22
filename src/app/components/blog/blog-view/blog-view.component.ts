@@ -23,7 +23,6 @@ export class BlogViewComponent implements OnInit {
       .get("/blog/" + this.id)
       .then((res: any) => {
         this.row = res.data;
-        console.log(this.row);
       })
       .catch(error => {
         console.log(error);
