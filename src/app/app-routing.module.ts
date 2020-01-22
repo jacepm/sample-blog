@@ -21,8 +21,7 @@ const routes: Routes = [
   },
   {
     path: "blog/view/:id",
-    component: BlogViewComponent,
-    canActivate: [AuthGuard]
+    component: BlogViewComponent
   },
   {
     path: "blog/add",
