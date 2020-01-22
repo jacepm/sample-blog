@@ -21,6 +21,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { BlogEditComponent } from './components/blog/blog-edit/blog-edit.component';
 import { ModalModule } from 'ngx-bootstrap';
+import { DeleteModalComponent } from './utilities/delete-modal/delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ModalModule } from 'ngx-bootstrap';
     BlogViewComponent,
     LoginComponent,
     BlogAddComponent,
-    BlogEditComponent
+    BlogEditComponent,
+    DeleteModalComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,7 @@ import { ModalModule } from 'ngx-bootstrap';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DeleteModalComponent]
 })
 export class AppModule { }
