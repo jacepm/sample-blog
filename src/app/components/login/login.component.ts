@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   user: any;
+  loading: Boolean = false;
 
   constructor(
     private api: ApiService,
@@ -40,10 +41,12 @@ export class LoginComponent implements OnInit {
       .post("/user/login", value)
       .then((res: any) => {
         this.user = res.data;
+        this.loading = true;
         localStorage.setItem("token", res.meta.token);
         this.router.navigate(["/blog"]);
       })
       .catch(error => {
+        this.loading = false;
         console.log(error);
       });
   }
