@@ -58,15 +58,14 @@ export class BlogListComponent implements OnInit {
 
     this.modalRef = this.modal.show(DeleteModalComponent, { initialState });
 
-    this.modalRef.content.event.subscribe(res => {
-      if (!res) {
+    this.modalRef.content.event.subscribe(result => {
+      if (!result) {
         return;
       }
 
       const value = { deleted: true };
       this.api
         .patch("/blog/" + id, value)
-        // tslint:disable-next-line: no-shadowed-variable
         .then(res => {
           console.log(res);
           this.getBlogLists();
