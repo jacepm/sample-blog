@@ -20,6 +20,7 @@ import { BlogAddComponent } from './components/blog/blog-add/blog-add.component'
 import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { BlogEditComponent } from './components/blog/blog-edit/blog-edit.component';
+import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { BlogEditComponent } from './components/blog/blog-edit/blog-edit.compone
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDatepickerModule
+    ModalModule.forRoot()
   ],
   providers: [
     AuthGuard,
