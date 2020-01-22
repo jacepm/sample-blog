@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./blog-add.component.css']
 })
 export class BlogAddComponent implements OnInit {
-  blogForm: FormGroup
+  blogForm: FormGroup;
+  loading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -36,6 +37,7 @@ export class BlogAddComponent implements OnInit {
   }
 
   save(value: string) {
+    this.loading = true;
     this.api
       .post("/blog", value)
       .then((res: any) => {
@@ -43,7 +45,8 @@ export class BlogAddComponent implements OnInit {
         this.router.navigate([`/blog`]);
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
+        this.loading = false;
       });
   }
 }
