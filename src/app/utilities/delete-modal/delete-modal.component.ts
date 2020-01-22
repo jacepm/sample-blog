@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
@@ -9,13 +9,23 @@ import { BsModalRef } from 'ngx-bootstrap';
 export class DeleteModalComponent implements OnInit {
   title: string;
   data: string;
-  actionBtnName: string;
-  actionBtnColor: string
-  closeBtnName: string;
+  loading = false;
+  event: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(public bsModalRef: BsModalRef) { }
+  constructor(public modalRef: BsModalRef) { }
 
   ngOnInit() {
-    
+  }
+
+  close() {
+    this.modalRef.hide();
+  }
+
+  delete() {
+    this.loading = true;
+    setTimeout(() => {
+      this.event.emit(true);
+      this.modalRef.hide();
+    }, 3000);
   }
 }
