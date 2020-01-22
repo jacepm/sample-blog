@@ -55,7 +55,7 @@ export class BlogEditComponent implements OnInit {
     return result;
   }
 
-  submit(value: string) {
+  save(value: string) {
     this.api
       .patch("/blog/" + this.id, value)
       .then((res: any) => {
