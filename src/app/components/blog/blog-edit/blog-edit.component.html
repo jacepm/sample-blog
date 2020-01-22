@@ -42,7 +42,7 @@
                             </mat-hint>
                         </mat-form-field>
                     </div>
-                    <button (click)="save(blogForm.value)" class="btn btn-primary">Submit <i class="fa fa-spinner fa-spin" *ngIf="loading"></i></button>
+                    <button (click)="save(blogForm.value)" [disabled]="blogForm.invalid" class="btn btn-primary">Submit <i class="fa fa-spinner fa-spin" *ngIf="loading"></i></button>
                 </form>
             </mat-card>
         </div>
