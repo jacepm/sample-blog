@@ -1,5 +1,5 @@
 <div class="row">
-    <button *ngIf="auth.loggedIn()" (click)="add()" class="btn btn-primary ml-auto mr-3 mb-3">New blog</button>
+    <button (click)="add()" class="btn btn-primary ml-auto mr-3 mb-3">New blog</button>
     <div class="col-sm-12 mb-3" *ngFor="let row of rows">
         <div class="card">
             <div class="card-body">
