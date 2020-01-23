@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiService } from "src/app/services/api.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-card",
@@ -9,7 +10,7 @@ import { ApiService } from "src/app/services/api.service";
 export class CardComponent implements OnInit {
   rows: any;
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.getBlogLists();
@@ -26,5 +27,9 @@ export class CardComponent implements OnInit {
       .catch(error => {
         console.log(error);
       });
+  }
+
+  goto(value: string) {
+    this.router.navigate([`/blog/view/${value}`]);
   }
 }
