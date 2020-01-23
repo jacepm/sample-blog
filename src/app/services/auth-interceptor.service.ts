@@ -7,7 +7,7 @@ import { throwError } from "rxjs";
 @Injectable({
   providedIn: "root"
 })
-export class AuthInterceptorService implements HttpInterceptor {
+export class AuthInterceptorService {
   constructor(private auth: AuthService) {}
 
   intercept(req, next) {
