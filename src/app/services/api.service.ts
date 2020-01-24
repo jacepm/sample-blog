@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 import { environment as env } from '../../environments/environment';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class ApiService {
   public get<T>(path: string): Promise<T> {
     return new Promise((resolve, reject) =>
       this.http
-        .get(this.API_URL + path)
+        .get(this.API_URL + path, this.authorization())
         .pipe(catchError(this.handleError))
         .subscribe((data: any) => resolve(data), err => reject(err))
     );
@@ -29,7 +29,7 @@ export class ApiService {
   public post<T, U>(path: string, body: T): Promise<U> {
     return new Promise((resolve, reject) =>
       this.http
-        .post(this.API_URL + path, body)
+        .post(this.API_URL + path, body, this.authorization())
         .pipe(catchError(this.handleError))
         .subscribe((data: any) => resolve(data), err => reject(err))
     );
@@ -38,9 +38,17 @@ export class ApiService {
   public patch<T, U>(path: string, body: T): Promise<U> {
     return new Promise((resolve, reject) =>
       this.http
-        .patch(this.API_URL + path, body)
+        .patch(this.API_URL + path, body, this.authorization())
         .pipe(catchError(this.handleError))
         .subscribe((data: any) => resolve(data), err => reject(err))
     );
+  }
+
+  authorization() {
+    return {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    };
   }
 }
