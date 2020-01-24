@@ -32,6 +32,7 @@ export class BlogListComponent implements OnInit {
         this.rows = res.data
           .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
           .filter((data: any) => data.deleted === false);
+
       })
       .catch(error => {
         console.log(error);

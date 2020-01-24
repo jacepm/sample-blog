@@ -1,13 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
-import { environment as env } from '../../environments/environment';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { throwError } from "rxjs";
+import { tap, catchError } from "rxjs/operators";
+import { environment as env } from "../../environments/environment";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
-
 export class ApiService {
   private API_URL = env.API_URL;
 
@@ -22,7 +21,10 @@ export class ApiService {
       this.http
         .get(this.API_URL + path, this.authorization())
         .pipe(catchError(this.handleError))
-        .subscribe((data: any) => resolve(data), err => reject(err))
+        .subscribe(
+          (data: any) => resolve(data),
+          err => reject(err)
+        )
     );
   }
 
@@ -31,7 +33,10 @@ export class ApiService {
       this.http
         .post(this.API_URL + path, body, this.authorization())
         .pipe(catchError(this.handleError))
-        .subscribe((data: any) => resolve(data), err => reject(err))
+        .subscribe(
+          (data: any) => resolve(data),
+          err => reject(err)
+        )
     );
   }
 
@@ -40,7 +45,10 @@ export class ApiService {
       this.http
         .patch(this.API_URL + path, body, this.authorization())
         .pipe(catchError(this.handleError))
-        .subscribe((data: any) => resolve(data), err => reject(err))
+        .subscribe(
+          (data: any) => resolve(data),
+          err => reject(err)
+        )
     );
   }
 

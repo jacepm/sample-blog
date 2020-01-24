@@ -1,10 +1,10 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap';
+import { Component, OnInit, EventEmitter } from "@angular/core";
+import { BsModalRef } from "ngx-bootstrap";
 
 @Component({
-  selector: 'app-delete-modal',
-  templateUrl: './delete-modal.component.html',
-  styleUrls: ['./delete-modal.component.css']
+  selector: "app-delete-modal",
+  templateUrl: "./delete-modal.component.html",
+  styleUrls: ["./delete-modal.component.css"]
 })
 export class DeleteModalComponent implements OnInit {
   title: string;
@@ -12,10 +12,9 @@ export class DeleteModalComponent implements OnInit {
   loading = false;
   event: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(public modalRef: BsModalRef) { }
+  constructor(public modalRef: BsModalRef) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   close() {
     this.modalRef.hide();
