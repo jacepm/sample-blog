@@ -23,7 +23,6 @@ import { BlogViewComponent } from "./components/blog/blog-view/blog-view.compone
 import { LoginComponent } from "./components/login/login.component";
 import { BlogAddComponent } from "./components/blog/blog-add/blog-add.component";
 import { AuthGuard } from "./guards/auth.guard";
-import { AuthInterceptorService } from "./services/auth-interceptor.service";
 import { BlogEditComponent } from "./components/blog/blog-edit/blog-edit.component";
 import { ModalModule } from "ngx-bootstrap";
 import { DeleteModalComponent } from "./utilities/delete-modal/delete-modal.component";
@@ -58,11 +57,7 @@ import { NoAuthGuard } from "./guards/noAuth.guard";
     MatButtonModule,
     ModalModule.forRoot()
   ],
-  providers: [
-    AuthGuard,
-    NoAuthGuard,
-    AuthInterceptorService
-  ],
+  providers: [AuthGuard, NoAuthGuard],
   bootstrap: [AppComponent],
   entryComponents: [DeleteModalComponent]
 })
