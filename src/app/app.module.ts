@@ -22,7 +22,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { BlogAddComponent } from "./components/blog/blog-add/blog-add.component";
 import { AuthGuard } from "./guards/auth.guard";
 import { BlogEditComponent } from "./components/blog/blog-edit/blog-edit.component";
-import { ModalModule } from "ngx-bootstrap";
+import { ModalModule } from "ngx-bootstrap/modal";
 import { DeleteModalComponent } from "./utilities/delete-modal/delete-modal.component";
 import { NoAuthGuard } from "./guards/noAuth.guard";
 

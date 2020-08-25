@@ -3,12 +3,12 @@ import { ApiService } from "../../../services/api.service";
 import { Router } from "@angular/router";
 import { AuthService } from "../../../services/auth.service";
 import { DeleteModalComponent } from "src/app/utilities/delete-modal/delete-modal.component";
-import { BsModalService, BsModalRef } from "ngx-bootstrap";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
 @Component({
   selector: "app-blog-list",
   templateUrl: "./blog-list.component.html",
-  styleUrls: ["./blog-list.component.css"]
+  styleUrls: ["./blog-list.component.css"],
 })
 export class BlogListComponent implements OnInit {
   rows: any;
@@ -32,9 +32,8 @@ export class BlogListComponent implements OnInit {
         this.rows = res.data
           .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
           .filter((data: any) => data.deleted === false);
-
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -54,12 +53,12 @@ export class BlogListComponent implements OnInit {
   deleteModal(id: string) {
     const initialState = {
       data: "Are you sure you want to delete this blog?",
-      title: "Delete blog"
+      title: "Delete blog",
     };
 
     this.modalRef = this.modal.show(DeleteModalComponent, { initialState });
 
-    this.modalRef.content.event.subscribe(result => {
+    this.modalRef.content.event.subscribe((result) => {
       if (!result) {
         return;
       }
@@ -67,11 +66,11 @@ export class BlogListComponent implements OnInit {
       const value = { deleted: true };
       this.api
         .patch("/blog/" + id, value)
-        .then(res => {
+        .then((res) => {
           console.log(res);
           this.getBlogLists();
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     });
