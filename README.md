@@ -1,2 +1,2 @@
-# sample-blog
-Sample blog using Angular 8
+# sample-blog-frontend
+Sample blog frontend using Angular 8
