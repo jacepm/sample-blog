@@ -9,12 +9,10 @@ import { MainNavComponent } from "./components/main-nav/main-nav.component";
 import { HomeComponent } from "./components/home/home.component";
 import { MainFooterComponent } from "./components/main-footer/main-footer.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import {
-  MatFormFieldModule,
-  MatInputModule,
-  MatCardModule,
-  MatButtonModule
-} from "@angular/material";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 import { CardComponent } from "./components/card/card.component";
 import { BlogComponent } from "./components/blog/blog.component";
 import { BlogListComponent } from "./components/blog/blog-list/blog-list.component";
@@ -41,7 +39,7 @@ import { NoAuthGuard } from "./guards/noAuth.guard";
     LoginComponent,
     BlogAddComponent,
     BlogEditComponent,
-    DeleteModalComponent
+    DeleteModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,10 +53,10 @@ import { NoAuthGuard } from "./guards/noAuth.guard";
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
   ],
   providers: [AuthGuard, NoAuthGuard],
   bootstrap: [AppComponent],
-  entryComponents: [DeleteModalComponent]
+  entryComponents: [DeleteModalComponent],
 })
 export class AppModule {}
